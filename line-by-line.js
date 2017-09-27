@@ -110,7 +110,7 @@ LineByLineReader.prototype._nextLine = function () {
 
 	if (this._lines.length === 0) {
 		if (this._end) {
-			if (this._lineFragment) {
+			if (!this._skipEmptyLines || this._lineFragment) {
 				this.emit('line', this._lineFragment);
 				this._lineFragment = '';
 			}
