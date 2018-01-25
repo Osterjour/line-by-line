@@ -21,7 +21,7 @@ var LineByLineReader = function (filepath, options) {
 	var self = this;
 
 	this._encoding = options && options.encoding || 'utf8';
-	if (filepath instanceof stream.Readable) {
+	if (filepath instanceof stream.Readable || filepath.readable === true) {
 		this._readStream = filepath;
 	}
 	else {
